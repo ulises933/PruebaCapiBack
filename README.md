@@ -24,13 +24,14 @@
 
 ### 1. Clonar el Repositorio
 
-git clone https://github.com//back-libreta-de-direcciones.git
+git clone https:/ulises933/github.com//back-libreta-de-direcciones.git
 cd back-libreta-de-direcciones
 
 ### 2. Configurar el Backend (Laravel)
 🧰 Instalar las Dependencias
 composer install
 📝 Configurar el Entorno
+Crea el archivo .env
 Configura las credenciales de la base de datos en el archivo .env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -68,12 +69,12 @@ Accede a la aplicación en tu navegador en http://localhost:8000.
 --------------------------------------------------------------------------------------------------------
 
 🧩 Estructura del Proyecto
-Carpeta	 -> Descripción
-app/Models ->	Modelos de Eloquent
-app/Http/Controllers ->	Controladores de la API
-app/Services ->	Lógica de negocio
-app/Repositories ->	Repositorios para acceder a los datos
-database/seeders ->	Seeders para poblar la base de datos
+Carpeta	 - Descripción
+app/Models -	Modelos de Eloquent
+app/Http/Controllers -	Controladores de la API
+app/Services -	Lógica de negocio
+app/Repositories -	Repositorios para acceder a los datos
+database/seeders -	Seeders para poblar la base de datos
 
 --------------------------------------------------------------------------------------------------------
 
