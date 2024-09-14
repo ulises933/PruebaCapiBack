@@ -7,15 +7,19 @@ use App\Models\Contacto;
 class ContactoRepository
 {
     public function all()
-    {
-        return Contacto::with(['telefonos', 'emails', 'direcciones'])->paginate(50);
-    }
+{
+    return Contacto::with(['telefonos', 'emails', 'direcciones'])
+                   ->orderBy('id', 'desc') 
+                   ->paginate(10);
+}
+
 
     public function find($id)
     {
         return Contacto::with(['telefonos', 'emails', 'direcciones'])->findOrFail($id);
     }
 
+    
     public function create(array $data)
     {
         return Contacto::create($data);

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Services;
 
 use App\Repositories\ContactoRepository;
@@ -25,13 +26,11 @@ class ContactoService
         $this->direccionRepository = $direccionRepository;
     }
 
-    // Obtener todos los contactos
     public function obtenerContactos()
     {
         return $this->contactoRepository->all();
     }
 
-    // Crear un nuevo contacto
     public function crearContacto($data)
     {
         $contacto = $this->contactoRepository->create($data);
@@ -72,13 +71,15 @@ class ContactoService
         return $contacto;
     }
 
-    // Actualizar un contacto
     public function actualizarContacto($id, $data)
     {
         $contacto = $this->contactoRepository->update($id, $data);
 
         // Actualizar teléfonos
         if (isset($data['telefonos'])) {
+            $telefonosIds = array_filter(array_column($data['telefonos'], 'id'));
+            $this->telefonoRepository->deleteWhereNotIn('contacto_id', $contacto->id, $telefonosIds);
+
             foreach ($data['telefonos'] as $telefono) {
                 if (isset($telefono['id'])) {
                     $this->telefonoRepository->update($telefono['id'], $telefono);
@@ -94,6 +95,9 @@ class ContactoService
 
         // Actualizar emails
         if (isset($data['emails'])) {
+            $emailsIds = array_filter(array_column($data['emails'], 'id'));
+            $this->emailRepository->deleteWhereNotIn('contacto_id', $contacto->id, $emailsIds);
+
             foreach ($data['emails'] as $email) {
                 if (isset($email['id'])) {
                     $this->emailRepository->update($email['id'], $email);
@@ -109,6 +113,9 @@ class ContactoService
 
         // Actualizar direcciones
         if (isset($data['direcciones'])) {
+            $direccionesIds = array_filter(array_column($data['direcciones'], 'id'));
+            $this->direccionRepository->deleteWhereNotIn('contacto_id', $contacto->id, $direccionesIds);
+
             foreach ($data['direcciones'] as $direccion) {
                 if (isset($direccion['id'])) {
                     $this->direccionRepository->update($direccion['id'], $direccion);
@@ -128,7 +135,6 @@ class ContactoService
         return $contacto;
     }
 
-    // Eliminar un contacto
     public function eliminarContacto($id)
     {
         return $this->contactoRepository->delete($id);
@@ -147,5 +153,10 @@ class ContactoService
     public function buscarContactosPorNombre($nombre)
     {
         return $this->contactoRepository->buscarPorNombre($nombre);
+    }
+
+    public function obtenerContactoPorId($id)
+    {
+        return $this->contactoRepository->find($id);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Services\ContactoService;
@@ -54,8 +55,12 @@ class ContactoController extends Controller
             'direcciones.*.codigo_postal' => 'nullable|string|max:20'
         ]);
 
-        $contacto = $this->contactoService->crearContacto($data);
-        return response()->json($contacto, 201);
+        try {
+            $contacto = $this->contactoService->crearContacto($data);
+            return response()->json($contacto, 201);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al crear el contacto'], 400);
+        }
     }
 
     // Actualizar un contacto
@@ -85,7 +90,7 @@ class ContactoController extends Controller
             $contacto = $this->contactoService->actualizarContacto($id, $data);
             return response()->json($contacto);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'Error al actualizar el contacto'], 400);
+            return response()->json(['error' => 'Error al actualizar el contacto: ' . $e->getMessage()], 400);
         }
     }
 
@@ -103,21 +108,33 @@ class ContactoController extends Controller
     // Buscar contactos por ciudad
     public function buscarPorCiudad($ciudad)
     {
-        $contactos = $this->contactoService->buscarContactosPorCiudad($ciudad);
-        return response()->json($contactos);
+        try {
+            $contactos = $this->contactoService->buscarContactosPorCiudad($ciudad);
+            return response()->json($contactos);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al buscar contactos por ciudad'], 400);
+        }
     }
 
     // Buscar contactos por empresa
     public function buscarPorEmpresa($empresa)
     {
-        $contactos = $this->contactoService->buscarContactosPorEmpresa($empresa);
-        return response()->json($contactos);
+        try {
+            $contactos = $this->contactoService->buscarContactosPorEmpresa($empresa);
+            return response()->json($contactos);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al buscar contactos por empresa'], 400);
+        }
     }
 
     // Buscar contactos por nombre
     public function buscarPorNombre($nombre)
     {
-        $contactos = $this->contactoService->buscarContactosPorNombre($nombre);
-        return response()->json($contactos);
+        try {
+            $contactos = $this->contactoService->buscarContactosPorNombre($nombre);
+            return response()->json($contactos);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error al buscar contactos por nombre'], 400);
+        }
     }
 }
