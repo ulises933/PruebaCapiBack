@@ -19,8 +19,8 @@ class DatabaseSeeder extends Seeder
         $phoneUtil = PhoneNumberUtil::getInstance();
         $faker = FakerFactory::create();
 
-        // Crear 3000 contactos, cada uno con 2 teléfonos, 2 emails, y 2 direcciones
-        Contacto::factory(3000)->create()->each(function ($contacto) use ($phoneUtil, $faker) {
+        // Crear 5000 contactos, cada uno con 2 teléfonos, 2 emails, y 2 direcciones
+        Contacto::factory(5000)->create()->each(function ($contacto) use ($phoneUtil, $faker) {
             
             // Crear teléfonos para cada contacto
             Telefono::factory(2)->create([
