@@ -39,9 +39,7 @@
 - DB_DATABASE=nombre_de_tu_base_de_datos
 - DB_USERNAME=tu_usuario
 - DB_PASSWORD=tu_contraseña
-🔑 Generar la Clave de la Aplicación
-- php artisan key:generate
-📦 Ejecutar Migraciones y Seeders
+- 📦 Ejecutar Migraciones y Seeders
 - php artisan migrate --seed
 
 ### 3. Iniciar el Servidor del Backend
