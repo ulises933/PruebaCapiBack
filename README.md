@@ -8,7 +8,7 @@
 - **Backend:** Laravel 11, PHP
 - **Base de Datos:** MySQL
 - **ORM:** Eloquent (Laravel)
-- **Dependencias:** `libphonenumber-for-php` para el formateo y validación de números telefónicos.
+- **Dependencias:** libphonenumber-for-php para el formateo y validación de números telefónicos.
 
 ---
 
@@ -24,28 +24,29 @@
 
 ### 1. Clonar el Repositorio
 
-git clone https://github.com//back-libreta-de-direcciones.git
-cd back-libreta-de-direcciones
+- git clone https://github.com/ulises933/back-libreta-de-direcciones.git
+- cd back-libreta-de-direcciones
 
 ### 2. Configurar el Backend (Laravel)
 🧰 Instalar las Dependencias
-composer install
+- composer install
 📝 Configurar el Entorno
-Configura las credenciales de la base de datos en el archivo .env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=nombre_de_tu_base_de_datos
-DB_USERNAME=tu_usuario
-DB_PASSWORD=tu_contraseña
+- Crea el archivo .env
+- Configura las credenciales de la base de datos en el archivo .env
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=nombre_de_tu_base_de_datos
+- DB_USERNAME=tu_usuario
+- DB_PASSWORD=tu_contraseña
 🔑 Generar la Clave de la Aplicación
-php artisan key:generate
+- php artisan key:generate
 📦 Ejecutar Migraciones y Seeders
-php artisan migrate --seed
+- php artisan migrate --seed
 
 ### 3. Iniciar el Servidor del Backend
-php artisan serve
-Accede a la aplicación en tu navegador en http://localhost:8000.
+- php artisan serve
+- Accede a la aplicación en tu navegador en http://localhost:8000.
 
 --------------------------------------------------------------------------------------------------------
 
@@ -68,20 +69,20 @@ Accede a la aplicación en tu navegador en http://localhost:8000.
 --------------------------------------------------------------------------------------------------------
 
 🧩 Estructura del Proyecto
-Carpeta	 -> Descripción
-app/Models ->	Modelos de Eloquent
-app/Http/Controllers ->	Controladores de la API
-app/Services ->	Lógica de negocio
-app/Repositories ->	Repositorios para acceder a los datos
-database/seeders ->	Seeders para poblar la base de datos
+- Carpeta	 --> Descripción
+- app/Models -->	Modelos de Eloquent
+- app/Http/Controllers -->	Controladores de la API
+- app/Services -->	Lógica de negocio
+- app/Repositories -->	Repositorios para acceder a los datos
+- database/seeders -->	Seeders para poblar la base de datos
 
 --------------------------------------------------------------------------------------------------------
 
 🤝 Contribuir
-¡Las contribuciones son bienvenidas! Para contribuir:
+- ¡Las contribuciones son bienvenidas! Para contribuir:
 
-Haz un fork del repositorio.
-Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
-Haz tus cambios y realiza commits (git commit -m 'Agregar nueva funcionalidad').
-Haz push a tu rama (git push origin feature/nueva-funcionalidad).
-Abre un pull request.
+- Haz un fork del repositorio.
+- Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+- Haz tus cambios y realiza commits (git commit -m 'Agregar nueva funcionalidad').
+- Haz push a tu rama (git push origin feature/nueva-funcionalidad).
+- Abre un pull request.
