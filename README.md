@@ -24,7 +24,7 @@
 
 ### 1. Clonar el Repositorio
 
-- git clone https://github.com/ulises933/back-libreta-de-direcciones.git
+- git clone https://github.com/ulises933/PruebaCapiBack.git
 - cd back-libreta-de-direcciones
 
 ### 2. Configurar el Backend (Laravel)
